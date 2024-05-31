@@ -3,12 +3,30 @@ const UserModel = require("./models/User");
 const { DB_CONNECTION } = process.env;
 
 const sequelize = new Sequelize(
-    "PGPASSWORD=8kiECzlp2nfefVLRQCpds0c2CkmlF6Go psql -h dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com -U micancionero_user micancionero",
+    "micancionero", // Nombre de la base de datos
+    "micancionero_user", // Usuario
+    "8kiECzlp2nfefVLRQCpds0c2CkmlF6Go", // Contraseña
     {
+        host: "dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com",
+        dialect: "postgres",
+        dialectOptions: {
+            ssl: {
+                require: true,
+                rejectUnauthorized: false,
+            },
+        },
         logging: false,
         native: false,
     }
 );
+
+// const sequelize = new Sequelize(
+//     "PGPASSWORD=8kiECzlp2nfefVLRQCpds0c2CkmlF6Go psql -h dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com -U micancionero_user micancionero",
+//     {
+//         logging: false,
+//         native: false,
+//     }
+// );
 // const sequelize = new Sequelize("postgres://postgres:Samictwd15@localhost/micancionero", {
 //     logging: false,
 //     native: false,
