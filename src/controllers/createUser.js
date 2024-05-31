@@ -17,7 +17,7 @@ const createUser = async (req, res) => {
             res.status(400).json({ message: "El usuario ya existe" });
         }
 
-        res.status(201);
+        res.status(201).send("Usuario creado");
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }
