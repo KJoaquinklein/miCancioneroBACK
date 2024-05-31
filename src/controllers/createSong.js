@@ -11,6 +11,7 @@ const createSong = async (req, res) => {
         const response = await User.findOne({ where: { username: username } });
 
         await response.update({ songs: [...response.songs, { title, author, type, sections }] });
+        return res.status(200).json({ message: "Canción creada exitosamente" });
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }
