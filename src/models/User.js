@@ -19,7 +19,7 @@ module.exports = (sequelize) => {
             },
             songs: {
                 type: DataTypes.ARRAY(DataTypes.JSON),
-                allowNull: false,
+                allowNull: true,
             },
         },
         { timestamps: false }
