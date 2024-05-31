@@ -1,5 +1,7 @@
 const express = require("express");
 const routerPath = require("./routes/index");
+const morgan = require("morgan");
+const cors = require("cors");
 
 const server = express();
 
@@ -11,7 +13,9 @@ server.use((req, res, next) => {
     next();
 });
 
+server.use(morgan("dev"));
 server.use(express.json());
+server.use(cors());
 server.use("/user", routerPath);
 
 module.exports = { express, server };
