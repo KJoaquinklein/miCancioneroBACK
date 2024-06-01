@@ -5,7 +5,7 @@ const createUser = async (req, res) => {
         const { username, password } = req.body;
 
         if (!username || !password) {
-            res.status(400).json({ message: "Faltan datos" });
+            return res.status(400).json({ message: "Faltan datos" });
         }
 
         const [user, created] = await User.findOrCreate({
@@ -14,10 +14,10 @@ const createUser = async (req, res) => {
         });
 
         if (!created) {
-            res.status(400).json({ message: "El usuario ya existe" });
+            return res.status(400).json({ message: "El usuario ya existe" });
         }
 
-        res.status(201).send("Usuario creado");
+        return res.status(201).send("Usuario creado");
     } catch (err) {
         return res.status(500).json({ error: err.message });
     }
