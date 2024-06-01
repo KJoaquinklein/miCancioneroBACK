@@ -10,7 +10,7 @@ const createSong = async (req, res) => {
 
         const response = await User.findOne({ where: { username: username } });
 
-        await response.update({ songs: [...response.songs, { title, author, genre, sections }] });
+        // await response.update({ songs: [...response.songs, { title, author, genre, sections }] });
 
         if (response.songs) {
             await response.update({ songs: [...response.songs, { title, author, genre, sections }] });
