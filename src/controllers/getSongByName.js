@@ -1,4 +1,5 @@
 const { Song } = require("../DB_connection");
+const { Op } = require("sequelize");
 
 const getSongByName = async (req, res) => {
     const { title } = req.query;

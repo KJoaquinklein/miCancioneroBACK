@@ -18,6 +18,6 @@ routerPath.post("/song", createSong);
 routerPath.get("/song/:id", getSongByTytleAndAuthor);
 routerPath.get("/songname", getSongByName);
 routerPath.get("/allsongs", getAllSongs);
-routerPath.post("/delete", deleteSong);
+routerPath.post("/delete/:id", deleteSong);
 
 module.exports = routerPath;
