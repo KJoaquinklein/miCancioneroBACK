@@ -1,5 +1,5 @@
 const { Sequelize } = require("sequelize");
-const UserModel = require("./models/User");
+const SongModel = require("./models/Song");
 const { DB_CONNECTION } = process.env;
 
 const sequelize = new Sequelize(
@@ -32,7 +32,7 @@ const sequelize = new Sequelize(
 //     native: false,
 // });
 
-UserModel(sequelize);
+SongModel(sequelize);
 
 const { Song } = sequelize.models;
 
