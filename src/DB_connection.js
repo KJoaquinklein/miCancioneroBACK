@@ -34,9 +34,9 @@ const sequelize = new Sequelize(
 
 UserModel(sequelize);
 
-const { User } = sequelize.models;
+const { Song } = sequelize.models;
 
 module.exports = {
-    User,
+    Song,
     conn: sequelize,
 };
