@@ -8,14 +8,26 @@ const createSong = async (req, res) => {
             return res.status(400).json({ message: "Faltan datos" });
         }
 
-        const [song, created] = await Song.findOrCreate({
-            where: { title, author },
-            defaults: { genre, sections },
-        });
-
-        if (!created) {
+        const song = await Song.findOne({ where: { title: title, author: author } });
+        if (song) {
             return res.status(400).json({ message: `La canción ${title} de ${author} ya existe` });
         }
+
+        const createNewSong = await Song.create({
+            title,
+            author,
+            genre,
+            sections,
+        });
+
+        // const [song, created] = await Song.findOrCreate({
+        //     where: { title: title, author: author },
+        //     defaults: { genre: genre, sections: sections },
+        // });
+
+        // if (!created) {
+        //     return res.status(400).json({ message: `La canción ${title} de ${author} ya existe` });
+        // }
 
         //! cuando habia user
         // const response = await User.findOne({ where: { username: username } });
