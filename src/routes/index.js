@@ -15,7 +15,7 @@ const routerPath = express.Router();
 // routerPath.get("/user", getUserByName);
 // routerPath.get("/login", login);
 routerPath.post("/song", createSong);
-routerPath.get("/song", getSongByTytleAndAuthor);
+routerPath.get("/song/:id", getSongByTytleAndAuthor);
 routerPath.get("/songname", getSongByName);
 routerPath.get("/allsongs", getAllSongs);
 routerPath.post("/delete", deleteSong);
