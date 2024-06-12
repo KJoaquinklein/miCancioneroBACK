@@ -6,6 +6,8 @@ const getSongByTytleAndAuthor = require("../controllers/getSongByTytleAndAuthor"
 const getSongByName = require("../controllers/getSongByName");
 const getAllSongs = require("../controllers/getAllSong");
 const deleteSong = require("../controllers/delete");
+const getllSongFilters = require("../controllers/GetAllSongsFilters");
+const getGeresAndAuthors = require("../controllers/getGeresAndAuthors");
 
 const express = require("express");
 
@@ -18,6 +20,8 @@ routerPath.post("/song", createSong);
 routerPath.get("/song/:id", getSongByTytleAndAuthor);
 routerPath.get("/songname", getSongByName);
 routerPath.get("/allsongs", getAllSongs);
+routerPath.get("/filters", getllSongFilters);
+routerPath.get("/genres_authors", getGeresAndAuthors);
 routerPath.post("/delete/:id", deleteSong);
 
 module.exports = routerPath;
