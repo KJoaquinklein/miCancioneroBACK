@@ -7,7 +7,7 @@ const sequelize = new Sequelize(
     "micancionero_user", // Usuario
     "8kiECzlp2nfefVLRQCpds0c2CkmlF6Go", // Contraseña
     {
-        host: "PGPASSWORD=8kiECzlp2nfefVLRQCpds0c2CkmlF6Go psql -h dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com -U micancionero_user micancionero",
+        host: "dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com",
         dialect: "postgres",
         dialectOptions: {
             ssl: {
