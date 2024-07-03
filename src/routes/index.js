@@ -17,7 +17,81 @@ const routerPath = express.Router();
 // routerPath.get("/user", getUserByName);
 // routerPath.get("/login", login);
 
-let songs = [];
+let songs = [
+    {
+        title: "Zamba Para Olvidar",
+        author: "Daniel Toro",
+        genre: "Zamba",
+        sections: [
+            {
+                type: "Estrofa",
+                verses: [
+                    "No sé para qué volviste",
+                    "Si ya empezaba a olvidar",
+                    "No sé si ya lo sabrás",
+                    "Lloré cuando vos te fuiste",
+                    "No sé para qué volviste",
+                    "Qué mal me hace recordar",
+                ],
+            },
+            {
+                type: "Estrofa",
+                verses: [
+                    "La tarde se ha puesto tristee",
+                    "Y yo prefiero callar",
+                    "¿Para qué vamos a hablar",
+                    "De cosas que ya no existen?",
+                    "No sé para qué volviste",
+                    "Ya ves, es mejor no hablar",
+                ],
+            },
+            {
+                type: "Estribillo",
+                verses: [
+                    "Qué pena me da saber que al final",
+                    "De este amor ya no queda nada",
+                    "Solo una pobre canción",
+                    "Da vueltas por mi guitarra",
+                    "Y hace rato que te extraña",
+                    "Mi zamba para olvidar",
+                ],
+            },
+            {
+                type: "Estrofa",
+                verses: [
+                    "Mi zamba vivió conmigo",
+                    "Parte de mi soledad",
+                    "No sé si ya lo sabrás",
+                    "Mi vida se fue contigo",
+                    "Contigo, mi amor, contigo",
+                    "Qué mal me hace recordar",
+                ],
+            },
+            {
+                type: "Estrofa",
+                verses: [
+                    "Mis manos ya son de barro",
+                    "Tanto apretar al dolor",
+                    "Y ahora que me falta el sol",
+                    "No sé qué venís buscando",
+                    "Llorando, mi amor, llorando",
+                    "También olvidame vos",
+                ],
+            },
+            {
+                type: "Estribillo",
+                verses: [
+                    "Qué pena me da saber que al final",
+                    "De este amor ya no queda nada",
+                    "Solo una pobre canción",
+                    "Da vueltas por mi guitarra",
+                    "Y hace rato que te extraña",
+                    "Mi zamba para olvidar",
+                ],
+            },
+        ],
+    },
+];
 
 const createSong = (req, res) => {
     try {
@@ -27,7 +101,7 @@ const createSong = (req, res) => {
             return res.status(400).json({ message: "Faltan datos" });
         }
 
-        const song = songs.filter((song) => song.title !== title && song.author !== author);
+        const song = songs.find((song) => song.title === title && song.author === author);
         if (song) {
             return res.status(400).json({ message: `La canción ${title} de ${author} ya existe` });
         }
