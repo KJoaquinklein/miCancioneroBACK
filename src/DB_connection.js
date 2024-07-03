@@ -1,13 +1,28 @@
-const { Sequelize } = require("sequelize");
-const SongModel = require("./models/Song");
-const { DB_CONNECTION } = process.env;
+// const { Sequelize } = require("sequelize");
+// const SongModel = require("./models/Song");
+// const { DB_CONNECTION } = process.env;
+
+// // const sequelize = new Sequelize(
+// //     "micancionero", // Nombre de la base de datos
+// //     "micancionero_user", // Usuario
+// //     "8kiECzlp2nfefVLRQCpds0c2CkmlF6Go", // Contraseña
+// //     {
+// //         host: "dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com",
+// //         dialect: "postgres",
+// //         dialectOptions: {
+// //             ssl: {
+// //                 require: true,
+// //                 rejectUnauthorized: false,
+// //             },
+// //         },
+// //         logging: false,
+// //         native: false,
+// //     }
+// // );
 
 // const sequelize = new Sequelize(
-//     "micancionero", // Nombre de la base de datos
-//     "micancionero_user", // Usuario
-//     "8kiECzlp2nfefVLRQCpds0c2CkmlF6Go", // Contraseña
+//     "postgres://micancionero_user:8kiECzlp2nfefVLRQCpds0c2CkmlF6Go@dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com/micancionero",
 //     {
-//         host: "dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com",
 //         dialect: "postgres",
 //         dialectOptions: {
 //             ssl: {
@@ -19,34 +34,19 @@ const { DB_CONNECTION } = process.env;
 //         native: false,
 //     }
 // );
+// // const sequelize = new Sequelize(
+// //     "postgres://micancionero_user:8kiECzlp2nfefVLRQCpds0c2CkmlF6Go@dpg-cpd28rgl6cac73bdv17g-a/micancionero",
+// //     {
+// //         logging: false,
+// //         native: false,
+// //     }
+// // );
 
-const sequelize = new Sequelize(
-    "postgres://micancionero_user:8kiECzlp2nfefVLRQCpds0c2CkmlF6Go@dpg-cpd28rgl6cac73bdv17g-a.oregon-postgres.render.com/micancionero",
-    {
-        dialect: "postgres",
-        dialectOptions: {
-            ssl: {
-                require: true,
-                rejectUnauthorized: false,
-            },
-        },
-        logging: false,
-        native: false,
-    }
-);
-// const sequelize = new Sequelize(
-//     "postgres://micancionero_user:8kiECzlp2nfefVLRQCpds0c2CkmlF6Go@dpg-cpd28rgl6cac73bdv17g-a/micancionero",
-//     {
-//         logging: false,
-//         native: false,
-//     }
-// );
+// SongModel(sequelize);
 
-SongModel(sequelize);
+// const { Song } = sequelize.models;
 
-const { Song } = sequelize.models;
-
-module.exports = {
-    Song,
-    conn: sequelize,
-};
+// module.exports = {
+//     Song,
+//     conn: sequelize,
+// };
