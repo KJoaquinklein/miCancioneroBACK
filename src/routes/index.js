@@ -16,13 +16,6 @@ const routerPath = express.Router();
 // routerPath.post("/user", createUser);
 // routerPath.get("/user", getUserByName);
 // routerPath.get("/login", login);
-routerPath.post("/song", createSong);
-routerPath.get("/song/:id", getSongByTytleAndAuthor);
-routerPath.get("/songname", getSongByName);
-routerPath.get("/allsongs", getAllSongs);
-routerPath.get("/filters", getllSongFilters);
-routerPath.get("/genres_authors", getGeresAndAuthors);
-routerPath.post("/delete/:id", deleteSong);
 
 let songs = [];
 
@@ -149,5 +142,13 @@ const deleteSong = (req, res) => {
         res.status(500).json({ error: error.message });
     }
 };
+
+routerPath.post("/song", createSong);
+routerPath.get("/song/:id", getSongByTytleAndAuthor);
+routerPath.get("/songname", getSongByName);
+routerPath.get("/allsongs", getAllSongs);
+routerPath.get("/filters", getllSongFilters);
+routerPath.get("/genres_authors", getGeresAndAuthors);
+routerPath.post("/delete/:id", deleteSong);
 
 module.exports = routerPath;
